@@ -1,0 +1,17 @@
+# dsh-claude-plugin-loader bundle patch: scans Claude-style plugin roots and
+# registers their skills/commands into the dsh host. The row name resolves to
+# this package from the profile's node_modules.
+- insert:
+    - id: claude-plugin-loader
+      name: dsh-claude-plugin-loader
+      config:
+        # Optional: override the default Claude plugin cache root.
+        # pluginRoots:
+        #   - "C:/path/to/shared-plugins"
+        #   - "C:/Users/me/.claude/plugins/cache"
+        # Optional: restrict to specific plugin names. Omit to load every
+        # discovered Claude-style plugin.
+        # enabledPlugins:
+        #   - "my-plugin"
+        # Optional: 0 disables the background command reload loop.
+        reloadIntervalMs: 1500
