@@ -1,0 +1,60 @@
+{
+  "name": "dsh-claude-plugin-loader",
+  "version": "0.1.0",
+  "description": "Load Claude Code-style plugins (skills, commands, hooks) inside DeepSeek Harness (dsh).",
+  "type": "module",
+  "main": "dsh-claude-plugin-loader.mjs",
+  "exports": {
+    ".": "./dsh-claude-plugin-loader.mjs",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dshhub": {
+    "schemaVersion": 1,
+    "displayName": "dsh-claude-plugin-loader",
+    "summary": "让 dsh 直接发现并加载 Claude 式插件：skills、commands、hooks，支持热更新与卸载清理。",
+    "categories": [
+      "集成",
+      "兼容层"
+    ],
+    "surfaces": [
+      "host",
+      "web",
+      "tui"
+    ],
+    "compatibility": {
+      "dsh": ">=0.1.0-rc.7",
+      "node": ">=18"
+    }
+  },
+  "files": [
+    "dsh-claude-plugin-loader.mjs",
+    "cordis.patch.yml",
+    "README.md",
+    "GUIDE.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "claude",
+    "compatibility"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrick1099/dsh-claude-plugin-loader.git"
+  },
+  "homepage": "https://github.com/patrick1099/dsh-claude-plugin-loader#readme",
+  "bugs": {
+    "url": "https://github.com/patrick1099/dsh-claude-plugin-loader/issues"
+  }
+}
