@@ -1,6 +1,7 @@
 # dsh-claude-plugin-loader bundle patch: scans Claude-style plugin roots and
-# registers their skills/commands into the dsh host. The row name resolves to
-# this package from the profile's node_modules.
+# registers their skills/commands/hooks into the dsh host. The row name resolves
+# to this package from the profile's node_modules (or to a copied single file
+# when the profile inserts `name: ./dsh-claude-plugin-loader.mjs`).
 - insert:
     - id: claude-plugin-loader
       name: dsh-claude-plugin-loader
@@ -9,9 +10,29 @@
         # pluginRoots:
         #   - "C:/path/to/shared-plugins"
         #   - "C:/Users/me/.claude/plugins/cache"
-        # Optional: restrict to specific plugin names. Omit to load every
-        # discovered Claude-style plugin.
+        # Optional: restrict to specific plugin names (case-insensitive). Omit
+        # to load every discovered Claude-style plugin.
         # enabledPlugins:
         #   - "my-plugin"
+        # Optional: restrict skills to `plugin:skill` keys.
+        # enabledSkills:
+        #   - "my-plugin:my-skill"
+        # Hooks bridge (0.2.0). A plugin with a usable hooks/dsh.json uses the
+        # DSH-native channel only; its hooks/hooks.json is not executed.
+        # hooksEnabled: true
+        # claudeHooks: true
+        # dshHooks: true
+        # sessionStartHooks: true      # legacy switch: SessionStart only
+        # hookTimeoutMs: 60000
+        # failClosed: false            # PreToolUse timeout -> deny when true
+        # maxStopBlocksPerTurn: 1
+        # startupGraceMs: 300
+        # transcript: auto             # auto | off (Claude transcript synthesis)
+        # sessionRoot: "C:/Users/me/.dsh/sessions"
+        # hookLog: true                # external evidence log
+        # hookLogPath: "C:/Users/me/.dsh/state/claude-plugin-loader/hooks.jsonl"
+        # hookLogMaxBytes: 262144
+        # bashPath: "C:/Program Files/Git/bin/bash.exe"
+        # powerShellPath: "powershell.exe"
         # Optional: 0 disables the background command reload loop.
         reloadIntervalMs: 1500

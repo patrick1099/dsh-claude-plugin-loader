@@ -1,6 +1,6 @@
 {
   "name": "dsh-claude-plugin-loader",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Load Claude Code-style plugins (skills, commands, hooks) inside DeepSeek Harness (dsh).",
   "type": "module",
   "main": "dsh-claude-plugin-loader.mjs",
@@ -17,7 +17,7 @@
   "dshhub": {
     "schemaVersion": 1,
     "displayName": "dsh-claude-plugin-loader",
-    "summary": "让 dsh 直接发现并加载 Claude 式插件：skills、commands、hooks，支持热更新与卸载清理。",
+    "summary": "让 dsh 直接发现并加载 Claude 式插件：skills、commands、hooks（DSH 原生 + Claude 兼容双通道），支持热更新与卸载清理。",
     "categories": [
       "集成",
       "兼容层"
@@ -29,7 +29,7 @@
     ],
     "compatibility": {
       "dsh": ">=0.1.0-rc.7",
-      "node": ">=18"
+      "node": ">=22"
     }
   },
   "files": [
@@ -43,7 +43,8 @@
     "dsh",
     "dsh-plugin",
     "claude",
-    "compatibility"
+    "compatibility",
+    "hooks"
   ],
   "license": "MIT",
   "publishConfig": {
